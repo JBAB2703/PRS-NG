@@ -1,0 +1,57 @@
+<div id='component'>
+    <div id='pagetitle'>
+      <span class='component-title'>{{title}}</span>
+      <!-- | <span><a routerLink='/product/create'>New Product</a></span> -->
+    </div>
+    <p *ngIf='!request'>Loading...</p>
+    <div *ngIf='request'>
+
+      <div class="form-group row">
+        <label class='col-form-label col-sm-2' for="requestdescription">Description:</label>
+        <input [(ngModel)]='request.description' name='Description' type="text" class="form-control col-sm-6" id="requestdescription"
+          aria-describedby="descriptionHelp" placeholder="Description">
+        <small id="descriptionHelp" class="form-text text-muted col-sm-2">Description</small>
+      </div>
+      <div class="form-group row">
+        <label class='col-form-label col-sm-2' for="requestjustification">Justification:</label>
+        <input [(ngModel)]='request.justification' name='Justification' type="text" class="form-control col-sm-6" id="requestjustification"
+          aria-describedby="justificationHelp" placeholder="Justification">
+        <small id="justificationHelp" class="form-text text-muted col-sm-2">Justification</small>
+      </div>
+      <div class="form-group row">
+        <label class='col-form-label col-sm-2' for="requestrejectionreason">Rejection Reason:</label>
+        <input [(ngModel)]='request.rejectionreason' name='Rejection Reason' type="text" class="form-control col-sm-6" id="rejectionreason"
+          aria-describedby="rejectionreasonHelp" placeholder="Rejection Reason">
+        <small id="rejectionreasonHelp" class="form-text text-muted col-sm-2">Rejection Reason</small>
+      </div>
+      <div class="form-group row">
+        <label class='col-form-label col-sm-2' for="deliverymode">Delivery Mode:</label>
+        <input [(ngModel)]='request.deliverymode' name='Delivery Mode' type="text" class="form-control col-sm-6" id="deliverymode"
+          aria-describedby="deliverymodeHelp" placeholder="Delivery Mode">
+        <small id="deliverymodeHelp" class="form-text text-muted col-sm-2">Delivery Mode</small>
+      </div>
+      <div class="form-group row">
+        <label class='col-form-label col-sm-2' for="total">Total:</label>
+        <input [(ngModel)]='request.total' name='Total' type="text" class="form-control col-sm-6" id="total"
+          aria-describedby="totalHelp" placeholder="Total">
+        <small id="totalHelp" class="form-text text-muted col-sm-2">Request Total</small>
+      </div>
+      <div class="form-group row">
+        <label class='col-form-label col-sm-2' for="requestuser">User:</label>
+        <input [(ngModel)]='request.userId' name='User' type="text" class="form-control col-sm-6" id="user"
+          aria-describedby="userHelp" placeholder="User">
+        <small id="userHelp" class="form-text text-muted col-sm-2">Request User</small>
+      </div>
+      <div class="form-group row">
+        <label class='col-form-label col-sm-2' for="requeststatus">User:</label>
+        <input [(ngModel)]='request.status' name='Status' type="text" class="form-control col-sm-6" id="status"
+          aria-describedby="userHelp" placeholder="Status">
+        <small id="statusHelp" class="form-text text-muted col-sm-2">Request Status</small>
+      </div>
+      <div class='form-group'>
+        <button (click)='create();' class='btn btn-primary'>Create</button>
+      </div>
+    </div>
+  </div>
+  
+  

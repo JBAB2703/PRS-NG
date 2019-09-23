@@ -27,7 +27,7 @@ this.route.params.subscribe(parms => {
 }
 remove(){
 this.vendorSvc.delete(this.vendor.id).subscribe(resp => {
-  alert('Vendor'+this.vendor+'successfully deleted!');
+  alert('Vendor '+this.vendor.id+' successfully deleted!');
   this.router.navigateByUrl('/vendor/list');
 },
 err => {

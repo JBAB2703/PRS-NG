@@ -1,0 +1,46 @@
+<div class='component-content'>
+    <div>
+      <span class='component-title'>{{title}}</span>
+    </div>
+    <p *ngIf='!request'>Loading...</p>
+    <div *ngIf='request'>
+      <hr />
+      <div class="form-group row">
+        <label class='col-form-label col-sm-2' for="user">User:</label>
+        <div class='col-sm-6 select-list'>
+          <select [(ngModel)]='request.user.id' [compareWith]='compareFn' class='form-control' name='User'
+            id='requestUserId'>
+            <option *ngFor="let user of users" [ngValue]="user.id" [selected]="user.id == request.user.id">
+              {{user.username}}
+            </option>
+          </select>
+        </div>
+      </div>
+      <hr />
+      <div class="form-group row">
+        <label class='col-form-label col-sm-2' for="description">Description:</label>
+        <input [(ngModel)]='request.description' name='Description' type="text" class="form-control col-sm-6" id="description"
+          aria-describedby="descriptionHelp" placeholder="Description">
+        <small id="descriptionHelp" class="form-text text-muted col-sm-2">Description</small>
+      </div>
+      <hr />
+      <div class="form-group row">
+        <label class='col-form-label col-sm-2' for="justification">Justification:</label>
+        <input [(ngModel)]='request.justification' name='Justification' type="text" class="form-control col-sm-6" id="justification"
+          aria-describedby="justificationHelp" placeholder="Justification">
+        <small id="justificationHelp" class="form-text text-muted col-sm-2">Justification</small>
+      </div>
+      <hr />
+      <div class="form-group row">
+        <label class='col-form-label col-sm-2' for="delivery mode">Delivery Mode:</label>
+        <input [(ngModel)]='request.deliverymode' name='Delivery Mode' type="text" class="form-control col-sm-6" id="deliverymode"
+          aria-describedby="dmHelp" placeholder="DeliveryMode">
+        <small id="dmHelp" class="form-text text-muted col-sm-2">Delivery Mode</small>
+      </div>
+      
+      <div class='form-group'>
+        <button (click)='edit()' class='btn btn-primary'>Ok</button>
+      </div>
+    </div>
+  </div>
+  

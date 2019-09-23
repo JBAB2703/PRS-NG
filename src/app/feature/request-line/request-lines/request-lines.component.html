@@ -1,0 +1,64 @@
+<div class='component-content'>
+    <div class='lefthalf'>
+        <span class='component-title'>{{title}}</span>
+
+        <p *ngIf='!request'>Loading ...</p>
+        <table class="table table-sm" *ngIf='request'>
+            <tr>
+                <th class='table-secondary'></th>
+                <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
+                    (click)="sortBy('id')"><u>ID</u></a></th>
+                <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
+                    (click)="sortBy('description')"><u>Description</u></a></th>
+                <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
+                    (click)="sortBy('status')"><u>Status</u></a></th>
+                <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
+                    (click)="sortBy('total')"><u>Total</u></a></th>
+            </tr>
+            <tr>
+                <td></td>
+                <td>{{request.id}}</td>
+                <td>{{request.description}}</td>
+                <td>{{request.status}}</td>
+                <td>{{request.total | currency}}</td>
+            </tr>
+        </table>
+
+        <span><a routerLink='/request/lines/create/{{id}}'>
+            <img id='createnew' width='20' height='20' src='assets/add-icon.png' title='Add New Line'></a>
+        </span>
+        
+        <p *ngIf="!lines || lines.length == 0">No line items yet. Please create a new one!</p>
+        <table class="table table-sm" *ngIf="lines && lines.length > 0">
+            <tr>
+                <th class='table-secondary'></th>
+                <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
+                    (click)="sortBy('id')"><u>ID</u></a></th>
+                <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
+                    (click)="sortBy('product')"><u>Product</u></a></th>
+                <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
+                    (click)="sortBy('quantity')"><u>Quantity</u></a></th>
+                <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
+                    (click)="sortBy('price')"><u>Price</u></a></th>
+                <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
+                    (click)="sortBy('total')"><u>Line Total</u></a></th>
+                <th class="table-secondary btn-link"><a class='btn btn-link font-weight-bold'>Action</a></th>
+            </tr>
+            <tr *ngFor='let line of lines | sort:sortCriteria:sortOrder'>
+                <td></td>
+                <td>{{line.id}}</td>
+                <td>{{line.product.name}}</td>
+                <td>{{line.quantity}}</td>
+                <td>{{line.product.price | currency}}</td>
+                <td>{{line.product.price*line.quantity | currency}}</td>
+                <td class='actions'>
+                <a routerLink='/request/lines/edit/{{line.id}}' class='actionIcon'><img src='assets/pencil-icon.png' width='20' height='20' title='Lines'></a>
+                <a routerLink='/request/lines/edit/{{line.id}}' class='actionIcon'><img src='assets/delete.jpg' width='20' height='20' title='Lines'></a>
+                </td>
+            </tr>
+        </table>
+        <div class='form-group'>
+                <button (click)='create();' class='btn btn-primary'>Submit For Review</button>
+            </div>
+    </div>
+</div>

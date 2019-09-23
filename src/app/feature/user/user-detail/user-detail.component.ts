@@ -27,7 +27,7 @@ export class UserDetailComponent implements OnInit {
   }
   remove(){
     this.userSvc.delete(this.user.id).subscribe(resp => {
-      alert('User'+this.user.username+'successfully deleted!');
+      alert('User '+this.user.username+' successfully deleted!');
       this.router.navigateByUrl('/user/list');
     },
     err => {
