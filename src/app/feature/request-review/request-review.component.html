@@ -1,0 +1,34 @@
+<div class='component-content'>
+        <div class='lefthalf'>
+          <span class='component-title'>{{title}}</span>
+        </div>
+      </div>
+      <p *ngIf='!requests'>Loading ...</p>
+      <table class="table table-sm" *ngIf='requests'>
+        <tr>
+          <th class='table-secondary'></th>
+          <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
+              (click)="sortBy('id')"><u>ID</u></a></th>
+          <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
+              (click)="sortBy('user.username')"><u>User Name</u></a></th>
+          <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
+              (click)="sortBy('description')"><u>Description</u></a></th>
+          <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
+              (click)="sortBy('status')"><u>Status</u></a></th>
+          <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
+              (click)="sortBy('total')"><u>Total</u></a></th>
+          <th class="table-secondary btn-link"><a class='btn btn-link font-weight-bold'>Action</a></th>
+        </tr>
+        <tr *ngFor='let request of requests | sort:sortCriteria:sortOrder'>
+          <td></td>
+          <td>{{request.id}}</td>
+          <td>{{request.user.username}}</td>
+          <td>{{request.description}}</td>
+          <td>{{request.status}}</td>
+          <td>{{request.total | currency}}</td>
+          <td class='actions'>
+            <a routerLink='/request/review/{{request.id}}' class='actionIcon'><img src='assets/lines.png' width='20' height='20' title='Review'></a>
+          </td>
+        </tr>
+      </table>
+      

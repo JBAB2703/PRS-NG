@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RequestService } from '@svc/request.service';
 import { RequestLinesService } from '@svc/requestlines.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Request } from '@model/request.class';
 import { RequestLine } from '@model/requestline.class';
 
@@ -11,14 +11,15 @@ import { RequestLine } from '@model/requestline.class';
   styleUrls: ['./request-lines.component.css']
 })
 export class RequestLinesComponent implements OnInit {
-  title = 'Request Lines';
+  title = 'Request Line Items';
   id: number;
   request: Request;
   lines: RequestLine[];
   
   constructor(private requestSvc: RequestService,
               private requestLinesSvc: RequestLinesService,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => this.id = params.id);
@@ -31,5 +32,16 @@ export class RequestLinesComponent implements OnInit {
     });
   }
 
-  
+  submit() {
+    this.requestSvc.submitForReview(this.id).subscribe(resp => {
+      this.router.navigate(['/request/list']);
+    })
+  }
+
+  delete(lineId: number){
+  this.requestLinesSvc.delete(lineId).subscribe(resp => {
+    // delete from lines array where lineId == line.id
+    this.lines = this.lines.filter(line => line.id !== lineId);
+  })
+}
 }

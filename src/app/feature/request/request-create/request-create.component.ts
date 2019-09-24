@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Request } from '@model/request.class';
-import { RequestCreate } from '@model/request-create.class';
+import { RequestCreate } from '@model/requestcreate.class';
 import { RequestService } from '@svc/request.service';
 import { Router } from '@angular/router';
 import { SystemService } from '../../../service/system.service';

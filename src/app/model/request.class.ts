@@ -11,6 +11,7 @@ export class Request {
     status: string;
     userId: number;
     user: User;
+    total: number;
 
     constructor(id:number = 0, description:string ='', justification:string = '', rejectionreason: string = '', 
     deliverymode: string = '', status: string = '', userId: number = 0, user: User = new User()) {

@@ -26,6 +26,9 @@ import { RequestLinesComponent } from './feature/request-line/request-lines/requ
 import { RequestLineItemCreateComponent } from './feature/request-line-item-create/request-line-item-create.component';
 import { RequestLineItemEditComponent } from './feature/request-line-item-edit/request-line-item-edit.component';
 
+import { RequestReviewComponent } from './feature/request-review/request-review.component';
+import { RequestApproveComponent } from './feature/request-line/request-approve/request-approve.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo:'/user/list', pathMatch: 'full'},
@@ -46,14 +49,18 @@ const routes: Routes = [
   { path: 'product/detail/:id', component: ProductDetailComponent},
   { path: 'product/edit/:id', component: ProductEditComponent},
 
-  { path: 'request/list', component: RequestListComponent,},
+  { path: 'request/list', component: RequestListComponent},
   { path: 'request/create', component: RequestCreateComponent},
   { path: 'request/detail/:id', component: RequestDetailComponent},
   { path: 'request/edit/:id', component: RequestEditComponent},
 
   { path: 'request/lines/:id', component: RequestLinesComponent},
   { path: 'request/lines/create/:id', component: RequestLineItemCreateComponent},
-  { path: 'request/lines/edit/:id', component: RequestLineItemEditComponent}
+  { path: 'request/lines/edit/:id', component: RequestLineItemEditComponent},
+
+  { path: 'request/review', component: RequestReviewComponent},
+  { path: 'request/review/:id', component: RequestApproveComponent}
+  
 ];
 
 @NgModule({

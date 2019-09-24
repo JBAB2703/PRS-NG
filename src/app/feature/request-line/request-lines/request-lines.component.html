@@ -23,7 +23,7 @@
                 <td>{{request.total | currency}}</td>
             </tr>
         </table>
-
+        <span class='component-title'>{{title}}</span>
         <span><a routerLink='/request/lines/create/{{id}}'>
             <img id='createnew' width='20' height='20' src='assets/add-icon.png' title='Add New Line'></a>
         </span>
@@ -53,12 +53,12 @@
                 <td>{{line.product.price*line.quantity | currency}}</td>
                 <td class='actions'>
                 <a routerLink='/request/lines/edit/{{line.id}}' class='actionIcon'><img src='assets/pencil-icon.png' width='20' height='20' title='Lines'></a>
-                <a routerLink='/request/lines/edit/{{line.id}}' class='actionIcon'><img src='assets/delete.jpg' width='20' height='20' title='Lines'></a>
+                <a (click)='delete(line.id); 'class='actionIcon'><img src='assets/delete.jpg' width='20' height='20' title='Lines'></a>
                 </td>
             </tr>
         </table>
         <div class='form-group'>
-                <button (click)='create();' class='btn btn-primary'>Submit For Review</button>
+                <button (click)='submit();' class='btn btn-primary'>Submit For Review</button>
             </div>
     </div>
 </div>
