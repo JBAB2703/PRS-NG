@@ -11,8 +11,8 @@ import { SystemService } from '../../../service/system.service';
   styleUrls: ['./request-create.component.css']
 })
 export class RequestCreateComponent implements OnInit {
-  request: RequestCreate = new RequestCreate();
-  response: Request;
+  // request: RequestCreate = new RequestCreate();
+  request: Request = new Request();
   title: string = 'Create Request';
 
   constructor(private requestSvc: RequestService,
@@ -29,9 +29,10 @@ export class RequestCreateComponent implements OnInit {
 
   create() {
     console.log(this.request)
+    this.request.status = 'New';
     this.requestSvc.create(this.request).subscribe(
       resp => {
-        this.response = resp as Request;
+        // this.response = resp as Request;
         this.router.navigate(['/request/list']);
     },
     err => {

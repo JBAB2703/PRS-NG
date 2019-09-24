@@ -37,7 +37,7 @@ export class RequestLinesComponent implements OnInit {
       this.router.navigate(['/request/list']);
     })
   }
-
+  
   delete(lineId: number){
   this.requestLinesSvc.delete(lineId).subscribe(resp => {
     // delete from lines array where lineId == line.id

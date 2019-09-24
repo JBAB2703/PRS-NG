@@ -10,11 +10,10 @@ export class Request {
     deliverymode: string;
     status: string;
     userId: number;
-    user: User;
     total: number;
 
     constructor(id:number = 0, description:string ='', justification:string = '', rejectionreason: string = '', 
-    deliverymode: string = '', status: string = '', userId: number = 0, user: User = new User()) {
+    deliverymode: string = '', status: string = '', userId: number = 0) {
 
         this.id = id;
         this.description = description;
@@ -23,6 +22,6 @@ export class Request {
         this.deliverymode = deliverymode;
         this.status = status;
         this.userId = userId;
-        this.user = user;
+        this.total = 0;
     }
 }

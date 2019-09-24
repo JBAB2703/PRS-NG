@@ -1,7 +1,7 @@
-
 <div id='component'>
   <div id='pagetitle'>
     <span class='component-title'>{{title}}</span>
+    <span><a routerLink='/user/list'>Back to list</a></span>
   </div>
   <p *ngIf='!user'>Loading...</p>
   <div *ngIf='user'>

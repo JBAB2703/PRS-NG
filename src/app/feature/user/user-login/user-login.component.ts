@@ -11,7 +11,7 @@ import { User } from '@model/user.class';
 })
 export class UserLoginComponent implements OnInit {
   message: any;
-  user: User = new User(0, 'BAKyle', 'b', '', '', '', '', false, false);
+  user: User = new User(0, '', '', '', '', '', '', false, false);
   
 
   login() {
