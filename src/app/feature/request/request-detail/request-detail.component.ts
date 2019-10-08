@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RequestService } from '@svc/request.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Request } from '@model/request.class';
+import { User } from '@model/user.class';
 
 @Component({
   selector: 'app-request-detail',
@@ -11,6 +12,7 @@ import { Request } from '@model/request.class';
 export class RequestDetailComponent implements OnInit {
   request: Request = new Request;
   title: string = 'Request Detail';
+  
 
   constructor(private requestSvc: RequestService, 
               private router: Router,

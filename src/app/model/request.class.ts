@@ -11,6 +11,8 @@ export class Request {
     status: string;
     userId: number;
     total: number;
+  user: any;
+    
 
     constructor(id:number = 0, description:string ='', justification:string = '', rejectionreason: string = '', 
     deliverymode: string = '', status: string = '', userId: number = 0) {
